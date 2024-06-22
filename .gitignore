@@ -1,0 +1,13 @@
+# directories
+coverage-report/
+node_modules/
+.sass-cache/
+log/
+vendor/
+local-site/
+tmp/
+
+# IDE's
+.project/
+.vscode/
+.idea/
