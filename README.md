@@ -1,16 +1,16 @@
-# IntelliWriter
+# IntelliDraft
 
-This plugin allows you to generate high-quality content using AI. Simply enter a prompt, and let IntelliWriter create engaging content for you.
+This plugin allows you to generate high-quality content using AI. Simply enter a prompt, and let IntelliDraft create engaging content for you.
 
 ## Installation
 
-1. Upload the plugin files to the `/wp-content/plugins/intelliwriter` directory, or install the plugin through the WordPress plugins screen directly.
+1. Upload the plugin files to the `/wp-content/plugins/intelliDraft` directory, or install the plugin through the WordPress plugins screen directly.
 2. Activate the plugin through the 'Plugins' screen in WordPress.
-3. Use the IntelliWriter settings page to configure your API key.
+3. Use the IntelliDraft settings page to configure your API key.
 
 ## Frequently Asked Questions
 
-After activating the plugin, go to the IntelliWriter settings page to enter your API key.
+After activating the plugin, go to the IntelliDraft settings page to enter your API key.
 
 ## Contributing
 
