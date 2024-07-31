@@ -2,7 +2,7 @@
 
 defined('ABSPATH') || exit;
 
-class IntelliWriter_Settings
+class IntelliDraft_Settings
 {
 
     public function __construct()
@@ -14,92 +14,78 @@ class IntelliWriter_Settings
 
     public function settings_init()
     {
-        register_setting('intelliwriter_settings_group', 'intelliwriter_api_settings');
+        register_setting('intellidraft_settings_group', 'intellidraft_api_settings', array('sanitize_callback' => array($this, 'intellidraft_api_sanitize_settings')));
 
         add_settings_section(
-            'intelliwriter_api_settings_section',
+            'intellidraft_api_settings_section',
             '',
             null,
-            'intelliwriter_api_cgpt'
+            'intellidraft_api_cgpt'
         );
 
         add_settings_field(
-            'intelliwriter_cgpt_api_key',
-            'API Key',
+            'intellidraft_cgpt_api_key',
+            'Chat-GPT API Key',
             array($this, 'cgpt_api_key_render'),
-            'intelliwriter_api_cgpt',
-            'intelliwriter_api_settings_section'
+            'intellidraft_api_cgpt',
+            'intellidraft_api_settings_section'
         );
 
         add_settings_field(
-            'intelliwriter_cgpt_model',
-            'Model',
-            array($this, 'cgpt_model_crender'),
-            'intelliwriter_api_cgpt',
-            'intelliwriter_api_settings_section'
+            'intellidraft_cgpt_model',
+            'Chat-GPT Model',
+            array($this, 'cgpt_model_render'),
+            'intellidraft_api_cgpt',
+            'intellidraft_api_settings_section'
         );
+    }
 
-        register_setting('intelliwriter_settings_group', 'intelliwriter_settings');
-
-        add_settings_section(
-            'intelliwriter_settings_section',
-            '',
-            null,
-            'intelliwriter'
-        );
-
-        add_settings_field(
-            'remove_options_on_uninstall',
-            'Remove options on uninstall?',
-            array($this, 'remove_options_render'),
-            'intelliwriter',
-            'intelliwriter_settings_section'
-        );
+    function intellidraft_api_sanitize_settings($settings)
+    {
+        if (isset($settings['intellidraft_cgpt_api_key'])) {
+            $settings['intellidraft_cgpt_api_key'] = IntelliDraft_CGPT_Api::api_key_encrypt(sanitize_text_field($settings['intellidraft_cgpt_api_key']));
+        }
+        return $settings;
     }
 
     public function cgpt_api_key_render()
     {
-        $options = get_option('intelliwriter_api_settings');
+        $options = get_option('intellidraft_api_settings');
+        $api_key = isset($options['intellidraft_cgpt_api_key']) ? IntelliDraft_CGPT_Api::api_key_decrypt($options['intellidraft_cgpt_api_key']) : '';
 ?>
-        <input type='text' id="intelliwriter_cgpt_api_key" name='intelliwriter_api_settings[intelliwriter_cgpt_api_key]' value='<?php echo isset($options['intelliwriter_cgpt_api_key']) ? $options['intelliwriter_cgpt_api_key'] : '' ?>'>
-    <?php
+        <input type='text' class="input-wide" name='intellidraft_api_settings[intellidraft_cgpt_api_key]' value='<?php echo $api_key ? $api_key : '' ?>'>
+<?php
     }
 
-    public function cgpt_model_crender()
+    public function cgpt_model_render()
     {
-        $options = get_option('intelliwriter_api_settings');
-
-        $chatgpt = new IntelliWriter_CGPT_Api();
+        $options = get_option('intellidraft_api_settings');
+        $chatgpt = new IntelliDraft_CGPT_Api();
         $models = $chatgpt->get_models();
-        echo '<select id="intelliwriter_cgpt_model" name="intelliwriter_api_settings[intelliwriter_cgpt_model]" style="width: 400px;">';
+        echo '<select id="intellidraft_cgpt_model" name="intellidraft_api_settings[intellidraft_cgpt_model]" class="input-wide">';
         foreach ($models->data as $model) {
             printf(
                 '<option value="%s" %s>%s</option>',
                 esc_attr($model->id),
-                isset($options['intelliwriter_cgpt_model']) && $options['intelliwriter_cgpt_model'] === $model->id ? 'selected="selected"' : '',
+                isset($options['intellidraft_cgpt_model']) && $options['intellidraft_cgpt_model'] === $model->id ? 'selected="selected"' : '',
                 esc_html($model->id)
             );
         }
         echo '</select>';
-    }
-
-    public function remove_options_render()
-    {
-        $options = get_option('intelliwriter_settings');
-    ?>
-        <input type="checkbox" name="intelliwriter_settings[remove_options_on_uninstall]" value="1" <?php checked(1, isset($options['remove_options_on_uninstall']) ? $options['remove_options_on_uninstall'] : 0, true); ?> />
-<?php
+        if (!isset($options['intellidraft_cgpt_api_key'])) {
+            echo '<div class="info-text">Fill in your api key and save the settings to see the list of models.</div>';
+        }
     }
 
     public function add_admin_menu()
     {
         add_options_page(
-            'IntelliWriter Settings',
-            'IntelliWriter',
+            'IntelliDraft Settings',
+            'IntelliDraft',
             'manage_options',
-            'intelliwriter',
+            'intellidraft',
             array($this, 'create_admin_page'),
-            20
+            99
         );
     }
 
@@ -110,11 +96,10 @@ class IntelliWriter_Settings
 
     public function enqueue_admin_assets($hook)
     {
-        if ($hook != 'settings_page_intelliwriter') {
+        if ($hook != 'toplevel_page_intellidraft') {
             return;
         }
 
-        wp_enqueue_style('intelliwriter_settings', plugin_dir_url(__FILE__) . '../../assets/css/admin.css', array(), '1.0.0');
-        wp_enqueue_script('intelliwriter_settings', plugin_dir_url(__FILE__) . '../../assets/js/admin.js', array(), '1.0.0', true);
+        wp_enqueue_style('intellidraft_settings', plugin_dir_url(__FILE__) . '../../assets/css/admin.css', array(), '1.0.0');
     }
 }
