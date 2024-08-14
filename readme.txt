@@ -1,11 +1,15 @@
 === IntelliDraft ===
 
+Plugin Name: IntelliDraft
+Version: 1.0.0
+Author: joaofreitas2002
+Author URL: http://joaoffreitas.com/
 Contributors: joaofreitas2002
 Tags: Chat-GPT, AI, content generation, content suggestions
 Requires at least: 6.5
 Tested up to: 6.5
 Requires PHP: 7.4
-Stable tag: 1.0
+Stable tag: 1.0.0
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 

@@ -1,3 +1,5 @@
+<?php defined('ABSPATH') || exit; ?>
+
 <div class="wrap" id="intellidraft-settings">
     <h2>IntelliDraft</h2>
     <br>

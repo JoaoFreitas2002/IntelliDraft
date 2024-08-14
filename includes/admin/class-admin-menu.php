@@ -53,7 +53,7 @@ class IntelliDraft_Settings
         $options = get_option('intellidraft_api_settings');
         $api_key = isset($options['intellidraft_cgpt_api_key']) ? IntelliDraft_CGPT_Api::api_key_decrypt($options['intellidraft_cgpt_api_key']) : '';
 ?>
-        <input type='text' class="input-wide" name='intellidraft_api_settings[intellidraft_cgpt_api_key]' value='<?php echo $api_key ? $api_key : '' ?>'>
+        <input type='text' class="input-wide" name='intellidraft_api_settings[intellidraft_cgpt_api_key]' value='<?php echo $api_key ? esc_attr($api_key) : '' ?>'>
 <?php
     }
 
@@ -68,7 +68,7 @@ class IntelliDraft_Settings
                 '<option value="%s" %s>%s</option>',
                 esc_attr($model->id),
                 isset($options['intellidraft_cgpt_model']) && $options['intellidraft_cgpt_model'] === $model->id ? 'selected="selected"' : '',
-                esc_html($model->id)
+                esc_attr($model->id)
             );
         }
         echo '</select>';
