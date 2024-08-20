@@ -49,29 +49,14 @@ class IntelliDraft_Post_Editor_Display
         $tone = sanitize_text_field($_POST['tone']);
         $language = sanitize_text_field($_POST['language']);
 
-        $prompt = "Please generate a blog post based on the following content:\n\n" .
-            "Title: $title\n" .
-            "Topics: $topics\n" .
-            "Tone: $tone\n\n" .
-            "Language: $language\n\n" .
-            "Return the response in the following format:\n" .
-            "{ \"Title\": \"<title>\", \"Body\": \"<body>\" }\n\n" .
-            "Make sure to follow this format exactly.";
+        $prompt = "Please generate a blog post based on the following title and topics, Title: $title ; Topics: $topics . Use the following tone and language, Tone: $tone ; Language: $language . Return the content in standard HTML format with appropriate tags without the need of head tag. Dont't use images/videos, only text.";
 
         $chatgpt = new IntelliDraft_CGPT_Api();
         $content = $chatgpt->generate_content($prompt);
 
         if (isset($content->choices[0]->message->content)) {
             $content = trim($content->choices[0]->message->content);
-            $parsed_content = json_decode($content, true);
-
-            if (json_last_error() === JSON_ERROR_NONE && isset($parsed_content['Title']) && isset($parsed_content['Body'])) {
-                $title = sanitize_text_field($parsed_content['Title']);
-                $body = sanitize_textarea_field($parsed_content['Body']);
-                wp_send_json_success(array('title' => $title, 'body' => $body));
-            } else {
-                wp_send_json_error(array('message' => 'Response format is invalid or not in JSON format'));
-            }
+            wp_send_json_success(array('body' => $content));
         } else {
             wp_send_json_error(array('message' => 'Invalid response from API'));
         }

@@ -1,0 +1,22 @@
+.intellidraft-sidebar .components-base-control {
+    width: 100%;
+}
+
+.intellidraft-sidebar .components-notice {
+    margin-top: 8px;
+}
+
+/* style.css */
+.icon {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    transition: fill 0.3s ease;
+    fill: black;
+    /* Default color */
+}
+
+.icon-white {
+    fill: white;
+    /* Color when toggled */
+}

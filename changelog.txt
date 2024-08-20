@@ -1,5 +1,8 @@
 == Changelog ==
 
 = v1.0.0 =
+* Initial release of IntelliDraft.
+* Features include blog post generation based on provided titles and topics.
 
-* Initial release
+= v1.0.1 =
+* Optimizing communication with the GPT chat API.

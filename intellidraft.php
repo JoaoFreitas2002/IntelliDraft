@@ -4,14 +4,9 @@
  * Plugin Name: IntelliDraft
  * Plugin URI: http://intellidraft.joaoffreitas.com/
  * Description: IntelliDraft is a cutting-edge WordPress plugin that leverages the power of AI to revolutionize your content creation process. Whether you're a blogger, marketer, or site administrator, IntelliDraft helps you produce high-quality, engaging content effortlessly. Transform the way you create, manage, and optimize your WordPress site with AI-driven insights and automation.
- * Version: 1.0.0
- * Requires at least: 6.5
- * Tested up to: 6.5
- * Requires PHP: 7.4
+ * Version: 1.0.1
  * Author: joaofreitas2002
  * Author URI: http://joaoffreitas.com/
- * License: GPLv3
- * License URI: https://www.gnu.org/licenses/gpl-3.0.html
  * Text Domain: intellidraft
  */
 
@@ -19,7 +14,7 @@ defined('ABSPATH') || exit;
 
 define('INTELLIDRAFT_PLUGIN_PATH', plugin_dir_path(__FILE__));
 define('INTELLIDRAFT_PLUGIN_URL', plugin_dir_url(__FILE__));
-define('INTELLIDRAFT_PLUGIN_VERSION', '1.0.0');
+define('INTELLIDRAFT_PLUGIN_VERSION', '1.0.1');
 
 require_once __DIR__ . '/vendor/autoload.php';
 
