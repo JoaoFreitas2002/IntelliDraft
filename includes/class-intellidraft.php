@@ -12,15 +12,15 @@ final class IntelliDraft
 
     private function includes()
     {
-        require_once plugin_dir_path(__FILE__) . 'admin/class-admin-menu.php';
-        require_once plugin_dir_path(__FILE__) . 'post-editor/class-editor-display.php';
-        require_once plugin_dir_path(__FILE__) . 'api/class-api.php';
+        require_once plugin_dir_path(__FILE__) . 'classes/class-settings.php';
+        require_once plugin_dir_path(__FILE__) . 'classes/class-chatGPT-api.php';
+        require_once plugin_dir_path(__FILE__) . 'classes/class-generate-post.php';
     }
 
     public function run()
     {
         new IntelliDraft_Settings();
-        new IntelliDraft_Post_Editor_Display();
         new IntelliDraft_CGPT_Api();
+        new IntelliDraft_Generate_Post();
     }
 }

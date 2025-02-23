@@ -1,0 +1,171 @@
+.intellidraft {
+  margin-right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 10px 0;
+}
+
+.generate-post {
+  margin: 15px auto;
+  max-width: 100%;
+  width: 1200px;
+}
+
+h2.generate-post {
+  font-size: 24px;
+  display: none;
+}
+
+.container {
+  display: flex;
+  width: 1200px;
+  max-width: 100%;
+  gap: 20px;
+  align-items: flex-start;
+  justify-content: center;
+  align-content: center;
+  flex-direction: row;
+  margin: auto;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.column-4 {
+  width: 33%;
+}
+
+.column-8 {
+  width: 67%;
+}
+
+.inner-container {
+  background: white;
+  border-radius: 5px;
+  border: none;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  gap: 20px;
+}
+
+.inner-container h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.w-100 {
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.w-100 h3 {
+  margin-bottom: 20px;
+}
+
+.text-area {
+  height: 100px;
+  min-height: 50px;
+  max-height: 150px;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+#content.text-area {
+  max-height: 500px;
+}
+
+.text-area,
+.text-input {
+  border: 1px solid #ccc !important;
+  background-color: #f9fdff !important;
+}
+
+.full-width-button {
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+  background: #232323;
+  color: #EDFF72;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+#create-button {
+  padding: 10px;
+}
+
+.content-params-container {
+  gap: 10px;
+}
+
+.content-params {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.content-params label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.content-params select {
+  max-width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9fdff;
+  font-size: 14px;
+}
+
+.form-info {
+  font-size: 12px;
+  margin-top: 5px;
+  font-style: italic;
+}
+
+.intellidraft p {
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+
+  .container {
+    flex-direction: column;
+  }
+
+  .column-4,
+  .column-8 {
+    width: 100%;
+  }
+
+  h2.generate-post {
+    display: block;
+  }
+}
+
+.loading-gif {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  margin-right: 5px;
+}

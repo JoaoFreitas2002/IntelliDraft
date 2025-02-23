@@ -1,5 +1,11 @@
 {
     "require": {
-        "orhanerday/open-ai": "^5.2"
+        "orhanerday/open-ai": "^5.2",
+        "erusev/parsedown": "^1.7"
+    },
+    "config": {
+        "allow-plugins": {
+            "alleyinteractive/composer-wordpress-autoloader": true
+        }
     }
 }

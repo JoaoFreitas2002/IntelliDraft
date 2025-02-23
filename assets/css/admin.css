@@ -36,7 +36,83 @@
     display: block;
 }
 
-#intelliwriter_cgpt_api_key {
+.tab-content tr th {
+    width: 300px;
+}
+
+.input-wide {
     max-width: 100%;
     width: 400px;
+}
+
+.info-text {
+    margin-top: 5px;
+}
+
+.rows {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+}
+
+.rows label {
+    width: 150px;
+}
+
+.prompts {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.intellidraft-tooltip-btn {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    line-height: 16px;
+    text-align: center;
+    background: #0073aa;
+    color: #fff;
+    border-radius: 50%;
+    margin-left: 5px;
+    cursor: help;
+    position: relative;
+}
+
+.intellidraft-tooltip-btn:hover::after {
+    content: attr(title);
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #333;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-size: 12px;
+    width: 200px;
+    z-index: 10;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .rows {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .intellidraft-tooltip-btn:hover::after {
+        transform: none;
+    }
+
+    .prompts {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 5px;
+    }
 }
