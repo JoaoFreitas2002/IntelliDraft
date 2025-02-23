@@ -69,8 +69,6 @@ IntelliDraft is designed to work seamlessly with most WordPress themes and plugi
 == Screenshots ==
 
 1. **IntelliDraft Dashboard**: A simple, intuitive interface for generating AI-powered blog posts.
-2. **API Key Setup**: The settings page where you enter your ChatGPT API key and select your AI model.
-
 
 == Changelog ==
 
