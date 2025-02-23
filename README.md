@@ -4,18 +4,13 @@
 
 ## Features
 
-### Version 1.0.0
+### Version 2.0.0
 - **Blog Post Generation**: Enter a title and topics, and IntelliDraft will generate a complete, well-structured blog post.
 
-### Future Features
+### Coming Soon
 - **Blog Post Featured Image Creation**: Automatically generate relevant featured images for your posts.
-- **Advanced Content Customization**: Refine the tone, style, and structure of your AI-generated content.
-- **Additional SEO Tools**: Enhanced keyword integration and optimization features.
-
-## Demo
-
-![IntelliDraft in Action](screenshots/intellidraft.gif)
-*Generating a blog post about the top 5 food in the world.*
+- **Gemini integration**: Integration with Google AI Gemini.
+- **Post Taxonomies selection**: Being able to choose post taxonomies before creating the generated post.
 
 ## Installation
 
@@ -23,12 +18,6 @@
 2. Upload the `intellidraft` folder to the `/wp-content/plugins/` directory of your WordPress site.
 3. Activate the plugin through the 'Plugins' menu in WordPress.
 4. Go to **Settings > IntelliDraft** to enter your ChatGPT API key, save the settings, and choose your preferred AI model. **This step is required for the plugin to work.**
-
-## Usage
-
-1. After setting up your API key, navigate to the IntelliDraft section in your WordPress editor.
-2. Enter the title and topics for your blog post.
-3. Click "Generate" to create a fully AI-generated blog post.
 
 ## Requirements
 
@@ -58,18 +47,6 @@ Contributions are welcome! Please fork this repository and submit a pull request
 
 IntelliDraft is licensed under the GPLv3. See the [LICENSE](https://www.gnu.org/licenses/gpl-3.0.html) file for more details.
 
-## Screenshots
-
-![IntelliDraft Dashboard](screenshots/dashboard.jpeg)
-*The IntelliDraft Dashboard, where you can generate AI-powered blog posts.*
-
-![API Key Setup](screenshots/api-setup.jpeg)
-*Settings page for entering your ChatGPT API key and selecting the AI model.*
-
 ## Support
 
 For support, please open an issue on GitHub or visit the WordPress plugin repository page.
-
-## Roadmap
-
-- **Version 1.1.0**: Blog post featured image creation, advanced content customization, and additional SEO tools.
